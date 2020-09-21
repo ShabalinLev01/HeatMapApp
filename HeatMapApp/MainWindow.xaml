@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="HeatMapApp" Height="450" Width="800">
+        Title="HeatMapApp" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
         <Button x:Name="ButtonOpen" Command="{Binding CommandOpen}"  Content="Open File" Margin="210,19,0,0" VerticalAlignment="Top" Height="25" HorizontalAlignment="Left" Width="100" />
         <Image Source="{Binding Path = ImageSource, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" x:Name="ImageHeatMap" Height="320" Margin="82,79,82,0" VerticalAlignment="Top" Stretch="Fill" StretchDirection="DownOnly" RenderTransformOrigin="0.492,0.484"/>

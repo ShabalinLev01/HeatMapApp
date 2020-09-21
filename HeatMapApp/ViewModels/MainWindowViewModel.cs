@@ -8,31 +8,32 @@ using HeatMapApp.ViewModel;
 namespace HeatMapApp.ViewModels
 {
     /// <summary>
-    /// 
+    /// The class that implements the ViewModel for the MainWindow
     /// </summary>
     public class MainWindowViewModel : INotifyPropertyChanged
     {
         private readonly OpenFileService _openFileService; 
         private readonly SaveFileService _saveFileService;
-        private readonly HeatMapService _heatMapService; 
-        private BitmapSource _imageSource { get; set; }
+        private readonly HeatMapService _heatMapService;
+        private BitmapSource _imageSource;
 
         /// <summary>
-        /// 
+        /// Accepts delegate for CommandOpen
         /// </summary>
         public ICommand CommandOpen => new DelegateCommand(OpenCommand);
+
         /// <summary>
-        /// 
+        /// Accepts delegate for CommandSave
         /// </summary>
         public ICommand CommandSave => new DelegateCommand(SaveCommand);
 
         /// <summary>
-        /// 
+        /// Informs a view that the properties of some object was changed
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
-        /// 
+        /// Constructor of MainWindowViewModel
         /// </summary>
         public MainWindowViewModel()
         {
@@ -42,16 +43,16 @@ namespace HeatMapApp.ViewModels
         }
 
         /// <summary>
-        /// 
+        /// The method called when it is necessary to inform that the object has changed
         /// </summary>
-        /// <param name="propertyName"></param>
+        /// <param name="propertyName">Name of the changed object</param>
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         /// <summary>
-        /// 
+        /// Property bound to an object in a view
         /// </summary>
         public BitmapSource ImageSource
         {
